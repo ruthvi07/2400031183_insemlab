@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Listing</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      .product {
+        border: 1px solid #aaa;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 8px;
+        display: inline-block;
+        width: 160px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>🛍️ Product Listing</h2>
+
+    <select id="filter">
+      <option value="All">All</option>
+      <option value="Stationery">Stationery</option>
+      <option value="Bags">Bags</option>
+      <option value="Electronics">Electronics</option>
+    </select>
+
+    <div id="productContainer"></div>
+
+    <script>
+      const products = [
+        { name: "Notebook", price: 50, category: "Stationery" },
+        { name: "Pen", price: 10, category: "Stationery" },
+        { name: "Laptop Bag", price: 1200, category: "Bags" },
+        { name: "School Bag", price: 800, category: "Bags" },
+        { name: "Mouse", price: 300, category: "Electronics" },
+        { name: "Keyboard", price: 700, category: "Electronics" }
+      ];
+
+      const container = document.getElementById("productContainer");
+      const filter = document.getElementById("filter");
+
+      function displayProducts(list) {
+        container.innerHTML = "";
+        list.forEach((item) => {
+          container.innerHTML += `
+            <div class="product">
+              <b>${item.name}</b><br>
+              ₹${item.price}<br>
+              ${item.category}
+            </div>
+          `;
+        });
+      }
+
+      filter.addEventListener("change", () => {
+        const category = filter.value;
+        const filtered =
+          category === "All"
+            ? products
+            : products.filter((p) => p.category === category);
+        displayProducts(filtered);
+      });
+
+      displayProducts(products);
+    </script>
+  </body>
+</html>
+
