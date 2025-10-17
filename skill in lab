@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-family:Arial;text-align:center">
+    <h2>🛍️ Product Listing</h2>
+    <select id="f">
+      <option>All</option><option>Stationery</option>
+      <option>Bags</option><option>Electronics</option>
+    </select>
+    <div id="c"></div>
+    <script>
+      const p=[
+        {n:"Notebook",pr:50,c:"Stationery"},
+        {n:"Pen",pr:10,c:"Stationery"},
+        {n:"Laptop Bag",pr:1200,c:"Bags"},
+        {n:"School Bag",pr:800,c:"Bags"},
+        {n:"Mouse",pr:300,c:"Electronics"},
+        {n:"Keyboard",pr:700,c:"Electronics"}
+        
+      ];
+      const c=document.getElementById("c"),f=document.getElementById("f");
+      function show(x){c.innerHTML="";x.forEach(i=>{
+        c.innerHTML+=`<div style='border:1px solid #aaa;margin:8px;padding:8px'>
+        <b>${i.n}</b><br>₹${i.pr}<br>${i.c}</div>`;
+      });}
+      f.onchange=()=>show(f.value=="All"?p:p.filter(i=>i.c==f.value));
+      show(p);
+    </script>
+  </body>
+</html>
