@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body style="font-family:Arial;text-align:center">
-    <h2>🛍️ Product Listing</h2>
+    <h2> Product Listing</h2>
     <select id="f">
       <option>All</option><option>Stationery</option>
       <option>Bags</option><option>Electronics</option>
